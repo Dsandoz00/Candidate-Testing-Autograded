@@ -25,7 +25,7 @@ let correctAnswers = [
   "Trajectory",
   "3"
 ];
-let candidateAnswers = "";
+let candidateAnswers = [];
 
 
 function askForName() {
@@ -37,20 +37,46 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-
     for (i = 0; i < questions.length; i++) {
-    let candidateAnswers = questions + candidate
-    console.log(candidateAnswers);
+    candidateAnswers[i] = prompt(questions[i]);
+        //ask questions to user-type answers and assign to variable//
+    //push answers into an array called candidate answers//
     }
+
 }
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+//For loop and check each answer-take one aspect from each and compare//
+//same for candidate answers and correct answers//
+//Go through each answers for the number of questions//
+ let numOfCorrectAnswers = 0;
 
-  console.log(`This is your answer ${candidateAnswers} vs ${correctAnswers}`);
+ for (let i = 0; i < questions.length; i++) {
+  let results = `Question ${i + 1}: ${questions[i]}\n` +
+                `Your answer: ${candidateAnswers[i]}\n` +
+                `Correct answer: ${correctAnswers[i]}`;
+  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+    results += "Correct!\n";
+    numOfCorrectAnswers++
+  } else {
+    results += "Inccorect.\n";
+  }
+  console.log(results);
+ }
+  
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade = (numOfCorrectAnswers / questions.length) * 100;  //TODO 3.2 use this variable to calculate the candidates score.
+
+  console.log(`You answered ${numOfCorrectAnswers} out of ${questions.length}`);
+  console.log(`Your score is ${grade.toFixed(2)}%`);
+
+  if (grade >= 80) {
+    console.log("PASSED");
+  } else {
+    console.log("FAILED");
+  }
 
 
   return grade;
