@@ -26,6 +26,7 @@ let correctAnswers = [
   "3"
 ];
 let candidateAnswers = [];
+let candResponse = [];
 
 
 function askForName() {
@@ -37,12 +38,12 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-    for (i = 0; i < questions.length; i++) {
-    candidateAnswers[i] = prompt(questions[i]);
-        //ask questions to user-type answers and assign to variable//
+  //ask questions to user-type answers and assign to variable//
     //push answers into an array called candidate answers//
+    for (i = 0; i < questions.length; i++) {
+    let candResponse = (questions[i]);
+    candidateAnswers.push(candResponse[i]);
     }
-
 }
 
 function gradeQuiz(candidateAnswers) {
