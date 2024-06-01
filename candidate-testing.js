@@ -57,7 +57,7 @@ function gradeQuiz(candidateAnswers) {
  for (let i = 0; i < questions.length; i++) {
   let results = `Question ${i + 1}: ${questions[i]}\n` +
                 `Your answer: ${candidateAnswers[i]}\n` +
-                `Correct answer: ${correctAnswers[i]}`;
+                `Correct answer: ${correctAnswers[i]}\n`;
   if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
     results += "Correct!\n";
     numOfCorrectAnswers++
