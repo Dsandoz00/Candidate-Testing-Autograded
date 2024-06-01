@@ -41,7 +41,7 @@ function askQuestion() {
   //ask questions to user-type answers and assign to variable//
     //push answers into an array called candidate answers//
     for (i = 0; i < questions.length; i++) {
-    let candResponse = (questions[i]);
+    let candResponse = input.question(questions[i]);
     candidateAnswers.push(candResponse[i]);
     }
 }
@@ -58,7 +58,7 @@ function gradeQuiz(candidateAnswers) {
   let results = `Question ${i + 1}: ${questions[i]}\n` +
                 `Your answer: ${candidateAnswers[i]}\n` +
                 `Correct answer: ${correctAnswers[i]}`;
-  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+  if (candidateAnswers[i] === correctAnswers[i].toLowerCase()) {
     results += "Correct!\n";
     numOfCorrectAnswers++
   } else {
